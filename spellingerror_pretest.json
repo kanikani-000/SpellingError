@@ -1,0 +1,1322 @@
+[
+  {
+    "item":1,
+    "condition":"A",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"新しい 法律に よって 有害な サイトへの アクセスを 規制した ようだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":1,
+    "condition":"B",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"新しい 法律に よって 有害な サイトへの アクセスを 既成した ようだ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":1,
+    "condition":"C",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"彼が 批判したのは 古い 慣習や 既成の 概念だった",
+    "correct_answer":"no"
+  },
+  {
+    "item":1,
+    "condition":"D",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"彼が 批判したのは 古い 慣習や 規制の 概念だった",
+    "correct_answer":"yes"
+  },
+  {
+    "item":2,
+    "condition":"A",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"研究チームは 実験データを もとに 仮説を 検証した ようだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":2,
+    "condition":"B",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"研究チームは 実験データを もとに 仮説を 懸賞した ようだ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":2,
+    "condition":"C",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"雑誌の 読者プレゼントに 応募して 懸賞が 当たった",
+    "correct_answer":"no"
+  },
+  {
+    "item":2,
+    "condition":"D",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"雑誌の 読者プレゼントに 応募して 検証が 当たった",
+    "correct_answer":"yes"
+  },
+  {
+    "item":3,
+    "condition":"A",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"温暖化の 影響で 世界各地の 気候が 変化した",
+    "correct_answer":"no"
+  },
+  {
+    "item":3,
+    "condition":"B",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"温暖化の 影響で 世界各地の 紀行が 変化した",
+    "correct_answer":"yes"
+  },
+  {
+    "item":3,
+    "condition":"C",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"作家が 旅の体験を まとめた 紀行を 出版した",
+    "correct_answer":"no"
+  },
+  {
+    "item":3,
+    "condition":"D",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"作家が 旅の体験を まとめた 気候を 出版した",
+    "correct_answer":"yes"
+  },
+  {
+    "item":4,
+    "condition":"A",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"気温や 降水量などの データから 今後の 気象を 予測した",
+    "correct_answer":"no"
+  },
+  {
+    "item":4,
+    "condition":"B",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"気温や 降水量などの データから 今後の 希少を 予測した",
+    "correct_answer":"yes"
+  },
+  {
+    "item":4,
+    "condition":"C",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"その鳥は 世界でも 数羽しか 確認されていない 希少な 種だった",
+    "correct_answer":"no"
+  },
+  {
+    "item":4,
+    "condition":"D",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"その鳥は 世界でも 数羽しか 確認されていない 気象な 種だった",
+    "correct_answer":"yes"
+  },
+  {
+    "item":5,
+    "condition":"A",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"彼女は プレゼンで 重要な 点を 太字で 強調した ようだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":5,
+    "condition":"B",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"彼女は プレゼンで 重要な 点を 太字で 協調した ようだ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":5,
+    "condition":"C",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"プロジェクトを 成功させる ために チーム全員が 協調した ようだ ",
+    "correct_answer":"no"
+  },
+  {
+    "item":5,
+    "condition":"D",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"プロジェクトを 成功させる ために チーム全員が 強調した ようだ ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":6,
+    "condition":"A",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"その企業は 業界全体に 影響を 与える 技術を 革新した ようだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":6,
+    "condition":"B",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"その企業は 業界全体に 影響を 与える 技術を 核心した ようだ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":6,
+    "condition":"C",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"長い議論の 末に ようやく 問題の 核心に 触れた",
+    "correct_answer":"no"
+  },
+  {
+    "item":6,
+    "condition":"D",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"長い議論の 末に ようやく 問題の 革新に 触れた",
+    "correct_answer":"yes"
+  },
+  {
+    "item":7,
+    "condition":"A",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"彼女は 新商品の プロモーション イベントを 企画した ようだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":7,
+    "condition":"B",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"彼女は 新商品の プロモーション イベントを 規格した ようだ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":7,
+    "condition":"C",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"その部品が 満たさなければ ならないのは 国際的な 規格 だった",
+    "correct_answer":"no"
+  },
+  {
+    "item":7,
+    "condition":"D",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"その部品が 満たさなければ ならないのは 国際的な 企画 だった",
+    "correct_answer":"yes"
+  },
+  {
+    "item":8,
+    "condition":"A",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"彼は 友人の 仕事に 必要以上に 干渉した ようだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":8,
+    "condition":"B",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"彼は 友人の 仕事に 必要以上に 観賞した ようだ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":8,
+    "condition":"C",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"彼は 美術館で 印象派の 絵画を じっくり 観賞した らしい",
+    "correct_answer":"no"
+  },
+  {
+    "item":8,
+    "condition":"D",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"彼は 美術館で 印象派の 絵画を じっくり 干渉した らしい",
+    "correct_answer":"yes"
+  },
+  {
+    "item":9,
+    "condition":"A",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"核兵器の 拡散は 世界平和への 重大な 脅威 だった",
+    "correct_answer":"no"
+  },
+  {
+    "item":9,
+    "condition":"B",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"核兵器の 拡散は 世界平和への 重大な 驚異 だった",
+    "correct_answer":"yes"
+  },
+  {
+    "item":9,
+    "condition":"C",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"その映像は 見る人を 圧倒する 自然の 驚異を 映し出していた",
+    "correct_answer":"no"
+  },
+  {
+    "item":9,
+    "condition":"D",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"その映像は 見る人を 圧倒する 自然の 脅威を 映し出していた",
+    "correct_answer":"yes"
+  },
+  {
+    "item":10,
+    "condition":"A",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"上司は 彼女の 丁寧な 仕事ぶりに 思わず 感心した ようだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":10,
+    "condition":"B",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"上司は 彼女の 丁寧な 仕事ぶりに 思わず 歓心した ようだ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":10,
+    "condition":"C",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"部下が ごまをすって 得ようとしたのは 上司の 歓心 だった",
+    "correct_answer":"no"
+  },
+  {
+    "item":10,
+    "condition":"D",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"部下が ごまをすって 得ようとしたのは 上司の 感心 だった",
+    "correct_answer":"yes"
+  },
+  {
+    "item":11,
+    "condition":"A",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"彼女は 仕事と 子育てを 両立させる 家庭を 築いた",
+    "correct_answer":"no"
+  },
+  {
+    "item":11,
+    "condition":"B",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"彼女は 仕事と 子育てを 両立させる 仮定を 築いた",
+    "correct_answer":"yes"
+  },
+  {
+    "item":11,
+    "condition":"C",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"実験では 一定の 条件を 置いた 仮定を 設計した",
+    "correct_answer":"no"
+  },
+  {
+    "item":11,
+    "condition":"D",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"実験では 一定の 条件を 置いた 家庭を 設計した",
+    "correct_answer":"yes"
+  },
+  {
+    "item":12,
+    "condition":"A",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"その問題を 解決する ために 国際的な 機関が 設立された",
+    "correct_answer":"no"
+  },
+  {
+    "item":12,
+    "condition":"B",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"その問題を 解決する ために 国際的な 器官が 設立された",
+    "correct_answer":"yes"
+  },
+  {
+    "item":12,
+    "condition":"C",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"心臓は 血液を 全身に 送るための 重要な 器官 だった",
+    "correct_answer":"no"
+  },
+  {
+    "item":12,
+    "condition":"D",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"心臓は 血液を 全身に 送るための 重要な 機関 だった",
+    "correct_answer":"yes"
+  },
+  {
+    "item":13,
+    "condition":"A",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"新しい 法律が 来月から 施行される 予定だった",
+    "correct_answer":"no"
+  },
+  {
+    "item":13,
+    "condition":"B",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"新しい 法律が 来月から 志向される 予定だった",
+    "correct_answer":"yes"
+  },
+  {
+    "item":13,
+    "condition":"C",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"彼女は 常に 高い 目標を 持つ 上昇 志向の 人だった",
+    "correct_answer":"no"
+  },
+  {
+    "item":13,
+    "condition":"D",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"彼女は 常に 高い 目標を 持つ 上昇 施行の 人だった",
+    "correct_answer":"yes"
+  },
+  {
+    "item":14,
+    "condition":"A",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"研究者は データを もとに 平均値を 算出した ようだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":14,
+    "condition":"B",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"研究者は データを もとに 平均値を 産出した ようだ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":14,
+    "condition":"C",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"その工場では 毎月 大量の 製品を 産出した ようだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":14,
+    "condition":"D",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"その工場では 毎月 大量の 製品を 算出した ようだ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":15,
+    "condition":"A",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"アンケートの 結果が 新しい制度の 改善に 反映された ようだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":15,
+    "condition":"B",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"アンケートの 結果が 新しい制度の 改善に 繁栄された ようだ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":15,
+    "condition":"C",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"その国は 豊かな資源を 背景に 長期的な 繁栄を 続けた",
+    "correct_answer":"no"
+  },
+  {
+    "item":15,
+    "condition":"D",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"その国は 豊かな資源を 背景に 長期的な 反映を 続けた",
+    "correct_answer":"yes"
+  },
+  {
+    "item":16,
+    "condition":"A",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"監督は 選手たちに 具体的な 戦術を 指示した ようだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":16,
+    "condition":"B",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"監督は 選手たちに 具体的な 戦術を 師事した ようだ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":16,
+    "condition":"C",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"彼女は 著名な画家に 長年 師事した らしい",
+    "correct_answer":"no"
+  },
+  {
+    "item":16,
+    "condition":"D",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"彼女は 著名な画家に 長年 支持した らしい",
+    "correct_answer":"yes"
+  },
+  {
+    "item":17,
+    "condition":"A",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"その映画は 来月 全国で 公開される 予定だった",
+    "correct_answer":"no"
+  },
+  {
+    "item":17,
+    "condition":"B",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"その映画は 来月 全国で 後悔される 予定だった",
+    "correct_answer":"yes"
+  },
+  {
+    "item":17,
+    "condition":"C",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"彼は 大切な友人を 傷つけたことを 深く 後悔した ようだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":17,
+    "condition":"D",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"彼は 大切な友人を 傷つけたことを 深く 公開した ようだ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":18,
+    "condition":"A",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"この支援制度は 低所得者を 対象と していた",
+    "correct_answer":"no"
+  },
+  {
+    "item":18,
+    "condition":"B",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"この支援制度は 低所得者を 対称と していた",
+    "correct_answer":"yes"
+  },
+  {
+    "item":18,
+    "condition":"C",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"その図形は 中心軸に対して 完全な 対称を なしていた",
+    "correct_answer":"no"
+  },
+  {
+    "item":18,
+    "condition":"D",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"その図形は 中心軸に対して 完全な 対象を なしていた",
+    "correct_answer":"yes"
+  },
+  {
+    "item":19,
+    "condition":"A",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"スマートフォンは 世界中で 急速に 普及したと 言われている",
+    "correct_answer":"no"
+  },
+  {
+    "item":19,
+    "condition":"B",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"スマートフォンは 世界中で 急速に 不朽したと 言われている",
+    "correct_answer":"yes"
+  },
+  {
+    "item":19,
+    "condition":"C",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"その作品は 時代を超えて 愛される 不朽の 名作だった",
+    "correct_answer":"no"
+  },
+  {
+    "item":19,
+    "condition":"D",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"その作品は 時代を超えて 愛される 普及の 名作だった",
+    "correct_answer":"yes"
+  },
+  {
+    "item":20,
+    "condition":"A",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"会議では 来年度の 事業の 方針を 決定した",
+    "correct_answer":"no"
+  },
+  {
+    "item":20,
+    "condition":"B",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"会議では 来年度の 事業の 放心を 決定した",
+    "correct_answer":"yes"
+  },
+  {
+    "item":20,
+    "condition":"C",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"試験が 終わった彼女は 緊張から 解放されて 放心した ようだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":20,
+    "condition":"D",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"試験が 終わった彼女は 緊張から 解放されて 方針した ようだ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":21,
+    "condition":"A",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"この地域は 新鮮な 魚介類が 豊富で あった",
+    "correct_answer":"no"
+  },
+  {
+    "item":21,
+    "condition":"B",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"この地域は 新鮮な 魚介類が 抱負で あった",
+    "correct_answer":"yes"
+  },
+  {
+    "item":21,
+    "condition":"C",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"新入社員は 入社式で 将来への 抱負を 語った",
+    "correct_answer":"no"
+  },
+  {
+    "item":21,
+    "condition":"D",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"新入社員は 入社式で 将来への 豊富を 語った",
+    "correct_answer":"yes"
+  },
+  {
+    "item":22,
+    "condition":"A",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"no",
+    "sentence":"新しい リーダーの もとで 組織の 体制を 整えた",
+    "correct_answer":"no"
+  },
+  {
+    "item":22,
+    "condition":"B",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"high",
+    "error":"yes",
+    "sentence":"新しい リーダーのもとで 組織の 耐性を 整えた",
+    "correct_answer":"yes"
+  },
+  {
+    "item":22,
+    "condition":"C",
+    "list":"2",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"no",
+    "sentence":"その菌は 抗生物質に対する 強い 耐性を 持っていた",
+    "correct_answer":"no"
+  },
+  {
+    "item":22,
+    "condition":"D",
+    "list":"1",
+    "target_filler":"target",
+    "context_freq":"low",
+    "error":"yes",
+    "sentence":"その菌は 抗生物質に対する 強い 体制を 持っていた",
+    "correct_answer":"yes"
+  },
+  {
+    "item":23,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼女は 毎朝 公園で ジョギングを した",
+    "correct_answer":"no"
+  },
+  {
+    "item":24,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"先生は 授業の 最後に 重要な 点を まとめた",
+    "correct_answer":"no"
+  },
+  {
+    "item":25,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼は 駅前の 本屋で 新しい 小説を 買った",
+    "correct_answer":"no"
+  },
+  {
+    "item":26,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼女は 図書館で 試験勉強を 続けた",
+    "correct_answer":"no"
+  },
+  {
+    "item":27,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"父は 週末に 家族と 近くの 公園を 散歩した",
+    "correct_answer":"no"
+  },
+  {
+    "item":28,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼は 新しい プロジェクトの リーダーに 選ばれた",
+    "correct_answer":"no"
+  },
+  {
+    "item":29,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼女は 駅の ホームで 友人を 待った",
+    "correct_answer":"no"
+  },
+  {
+    "item":30,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"医者は 患者に 薬の 飲み方を 説明した",
+    "correct_answer":"no"
+  },
+  {
+    "item":31,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼は 大学院で 言語学の 研究を 続けた",
+    "correct_answer":"no"
+  },
+  {
+    "item":32,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼女は 料理教室で 新しい レシピを 学んだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":33,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"チームは 半年かけて 新商品の 開発を 終えた",
+    "correct_answer":"no"
+  },
+  {
+    "item":34,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼は 朝早く 起きて 会議の 資料を 準備した",
+    "correct_answer":"no"
+  },
+  {
+    "item":35,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼女は 海外留学の ために パスポートを 取得した",
+    "correct_answer":"no"
+  },
+  {
+    "item":36,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"先生は 生徒に 宿題の 提出期限を 伝えた",
+    "correct_answer":"no"
+  },
+  {
+    "item":37,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼は 体調が 悪くなり 病院に 行った",
+    "correct_answer":"no"
+  },
+  {
+    "item":38,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼女は ボランティア活動に 積極的に 参加した",
+    "correct_answer":"no"
+  },
+  {
+    "item":39,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"研究室では 毎週 ミーティングを 開いた",
+    "correct_answer":"no"
+  },
+  {
+    "item":40,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼は 毎晩 日記に 今日の 出来事を 書いた",
+    "correct_answer":"no"
+  },
+  {
+    "item":41,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼女は 友人と 近くの カフェで お茶を 飲んだ",
+    "correct_answer":"no"
+  },
+  {
+    "item":42,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"研究者は 実験結果を 学会で 発表した",
+    "correct_answer":"no"
+  },
+  {
+    "item":43,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼は 毎朝 新聞を 読んで から 出勤した",
+    "correct_answer":"no"
+  },
+  {
+    "item":44,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼女は 友人の 誕生日に プレゼントを 贈った",
+    "correct_answer":"no"
+  },
+  {
+    "item":45,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"その映画は 観客から 高い評価を 受けた",
+    "correct_answer":"no"
+  },
+  {
+    "item":46,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼は 長年の 夢だった 小説を 書き上げた",
+    "correct_answer":"no"
+  },
+  {
+    "item":47,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼女は 大学の 講義で 重要な 発見を した",
+    "correct_answer":"no"
+  },
+  {
+    "item":48,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"その選手は 練習を 重ねて 試合に 勝利した",
+    "correct_answer":"no"
+  },
+  {
+    "item":49,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼は 家族と 久しぶりに 夕食を 共にした",
+    "correct_answer":"no"
+  },
+  {
+    "item":50,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼女は 新しい 職場に すぐに 慣れた",
+    "correct_answer":"no"
+  },
+  {
+    "item":51,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"その研究は 世界中の 科学者から 注目された",
+    "correct_answer":"no"
+  },
+  {
+    "item":52,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"no",
+    "sentence":"彼は 重要な 会議の 議事録を まとめた",
+    "correct_answer":"no"
+  },
+  {
+    "item":53,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"彼女は 週末に 友人と 映画を みあ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":54,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"彼は 朝食に トーストと コーヒーを たべあ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":55,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"先生は 黒板に 明日の 予定を かいあ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":56,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"彼女は 図書館で 借りた本を よんあ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":57,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"彼は 友人への プレゼントを ネットで えらんあ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":58,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"彼女は 新しいアルバイト先で 働き はじめあ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":59,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"研究者は 論文の 最終確認を おこなあ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":60,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"彼は 大切な 書類を 引き出しに しまあ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":61,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"彼女は 発表の 準備を 前日までに すませあ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":62,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"チームは 長い 議論の 末に 結論を だしあ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":63,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"彼女は 大事な 約束を 手帳に かきとめあ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":64,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"その選手は 試合前に 入念な 準備を おこなあ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":65,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"彼は 駅まで 急いで 自転車で むかあ",
+    "correct_answer":"yes"
+  },
+  {
+    "item":66,
+    "condition":null,
+    "list":"filler",
+    "target_filler":"filler",
+    "context_freq":"filler",
+    "error":"yes",
+    "sentence":"彼女は 授業の 内容を ノートに まとめあ",
+    "correct_answer":"yes"
+  }
+]
