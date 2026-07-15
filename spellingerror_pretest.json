@@ -386,7 +386,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"no",
-    "sentence":"部下が ごまをすって 得ようとしたのは 上司の 歓心 だった",
+    "sentence":"部下が ごまをすって 得ようと したのは 上司の 歓心 だった",
     "correct_answer":"no"
   },
   {
@@ -396,7 +396,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"yes",
-    "sentence":"部下が ごまをすって 得ようとしたのは 上司の 感心 だった",
+    "sentence":"部下が ごまをすって 得ようと したのは 上司の 感心 だった",
     "correct_answer":"yes"
   },
   {
@@ -566,7 +566,7 @@
     "target_filler":"target",
     "context_freq":"high",
     "error":"no",
-    "sentence":"アンケートの 結果が 新しい制度の 改善に 反映された ようだ",
+    "sentence":"アンケートの 結果が 新しい 制度の 改善に 反映された ようだ",
     "correct_answer":"no"
   },
   {
@@ -576,7 +576,7 @@
     "target_filler":"target",
     "context_freq":"high",
     "error":"yes",
-    "sentence":"アンケートの 結果が 新しい制度の 改善に 繁栄された ようだ",
+    "sentence":"アンケートの 結果が 新しい 制度の 改善に 繁栄された ようだ",
     "correct_answer":"yes"
   },
   {
@@ -586,7 +586,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"no",
-    "sentence":"その国は 豊かな資源を 背景に 長期的な 繁栄を 続けた",
+    "sentence":"その国は 豊かな 資源を 背景に 長期的な 繁栄を 続けた",
     "correct_answer":"no"
   },
   {
@@ -596,7 +596,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"yes",
-    "sentence":"その国は 豊かな資源を 背景に 長期的な 反映を 続けた",
+    "sentence":"その国は 豊かな 資源を 背景に 長期的な 反映を 続けた",
     "correct_answer":"yes"
   },
   {
@@ -626,7 +626,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"no",
-    "sentence":"彼女は 著名な画家に 長年 師事した らしい",
+    "sentence":"彼女は 著名な 画家に 長年 師事した らしい",
     "correct_answer":"no"
   },
   {
@@ -636,7 +636,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"yes",
-    "sentence":"彼女は 著名な画家に 長年 支持した らしい",
+    "sentence":"彼女は 著名な 画家に 長年 支持した らしい",
     "correct_answer":"yes"
   },
   {
@@ -666,7 +666,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"no",
-    "sentence":"彼は 大切な友人を 傷つけたことを 深く 後悔した ようだ",
+    "sentence":"彼は 大切な 友人を 傷つけたことを 深く 後悔した ようだ",
     "correct_answer":"no"
   },
   {
@@ -676,7 +676,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"yes",
-    "sentence":"彼は 大切な友人を 傷つけたことを 深く 公開した ようだ",
+    "sentence":"彼は 大切な 友人を 傷つけたことを 深く 公開した ようだ",
     "correct_answer":"yes"
   },
   {
@@ -706,7 +706,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"no",
-    "sentence":"その図形は 中心軸に対して 完全な 対称を なしていた",
+    "sentence":"その図形は 中心軸に 対して 完全な 対称を なしていた",
     "correct_answer":"no"
   },
   {
@@ -716,7 +716,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"yes",
-    "sentence":"その図形は 中心軸に対して 完全な 対象を なしていた",
+    "sentence":"その図形は 中心軸に 対して 完全な 対象を なしていた",
     "correct_answer":"yes"
   },
   {
@@ -746,7 +746,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"no",
-    "sentence":"その作品は 時代を超えて 愛される 不朽の 名作だった",
+    "sentence":"その作品は 時代を 超えて 愛される 不朽の 名作だった",
     "correct_answer":"no"
   },
   {
@@ -756,7 +756,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"yes",
-    "sentence":"その作品は 時代を超えて 愛される 普及の 名作だった",
+    "sentence":"その作品は 時代を 超えて 愛される 普及の 名作だった",
     "correct_answer":"yes"
   },
   {
@@ -786,7 +786,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"no",
-    "sentence":"試験が 終わった彼女は 緊張から 解放されて 放心した ようだ",
+    "sentence":"試験が 終わった 彼女は 緊張から 解放されて 放心した ようだ",
     "correct_answer":"no"
   },
   {
@@ -796,7 +796,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"yes",
-    "sentence":"試験が 終わった彼女は 緊張から 解放されて 方針した ようだ",
+    "sentence":"試験が 終わった 彼女は 緊張から 解放されて 方針した ようだ",
     "correct_answer":"yes"
   },
   {
@@ -866,7 +866,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"no",
-    "sentence":"その菌は 抗生物質に対する 強い 耐性を 持っていた",
+    "sentence":"その菌は 抗生物質に 対する 強い 耐性を 持っていた",
     "correct_answer":"no"
   },
   {
@@ -876,7 +876,7 @@
     "target_filler":"target",
     "context_freq":"low",
     "error":"yes",
-    "sentence":"その菌は 抗生物質に対する 強い 体制を 持っていた",
+    "sentence":"その菌は 抗生物質に 対する 強い 体制を 持っていた",
     "correct_answer":"yes"
   },
   {
