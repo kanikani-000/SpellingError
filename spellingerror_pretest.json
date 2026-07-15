@@ -602,7 +602,7 @@
   {
     "item":16,
     "condition":"A",
-    "list":"1",
+    "list":"2",
     "target_filler":"target",
     "context_freq":"high",
     "error":"no",
@@ -612,7 +612,7 @@
   {
     "item":16,
     "condition":"B",
-    "list":"2",
+    "list":"1",
     "target_filler":"target",
     "context_freq":"high",
     "error":"yes",
@@ -622,7 +622,7 @@
   {
     "item":16,
     "condition":"C",
-    "list":"2",
+    "list":"1",
     "target_filler":"target",
     "context_freq":"low",
     "error":"no",
@@ -632,11 +632,11 @@
   {
     "item":16,
     "condition":"D",
-    "list":"1",
+    "list":"2",
     "target_filler":"target",
     "context_freq":"low",
     "error":"yes",
-    "sentence":"彼女は 著名な 画家に 長年 支持した らしい",
+    "sentence":"彼女は 著名な 画家に 長年 指示した らしい",
     "correct_answer":"yes"
   },
   {
