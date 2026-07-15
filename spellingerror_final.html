@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spelling Error Experiment</title>
+
+  <script src="dist/jspsych.js"></script>
+  <script src="dist/plugin-fullscreen.js"></script>
+  <script src="dist/plugin-html-keyboard-response.js"></script>
+  <script src="dist/plugin-html-button-response.js"></script>
+  <script src="dist/plugin-survey-html-form.js"></script>
+
+  <link rel="stylesheet" href="dist/jspsych.css">
+
+  <style>
+    body { background: #fff; }
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: left;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+    .center-page {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.8;
+      font-size: 20px;
+    }
+    .small { font-size: 15px; color: #555; }
+    .warning { color: #b00020; font-weight: bold; }
+    .ok { color: #006400; font-weight: bold; }
+    .question-block {
+      border-top: 1px solid #ddd;
+      padding-top: 16px;
+      margin-top: 16px;
+    }
+    .handedness-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+    .handedness-table th,
+    .handedness-table td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    .handedness-table td:first-child,
+    .handedness-table th:first-child {
+      text-align: left;
+    }
+    input[type="text"], input[type="number"], select {
+      font-size: 16px;
+      padding: 4px 6px;
+      margin: 4px 4px 4px 0;
+    }
+    .spacer { height: 14px; }
+    .word { font-size: 42px; text-align: center; }
+    .fixation { font-size: 64px; text-align: center; }
+    .feedback-correct { font-size: 32px; color: green; text-align: center; }
+    .feedback-incorrect { font-size: 32px; color: red; text-align: center; }
+    button, input[type="submit"] {
+      font-size: 16px;
+      padding: 8px 16px;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+
+<body></body>
+
+<script>
+/************************************************************
+ * Spelling Error Experiment
+ * Online self-paced reading experiment
+ * Version: v1.0.0
+ * Last updated: 2026-07-14
+ ************************************************************/
+
+const EXPERIMENT_VERSION = "v1.0.0";
+const GITHUB_COMMIT = "manual-build";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbyvzbuwvwp6wVw6tCrU-cUtfC6S-rSz-K7KUYEO1MTkLjE5sj5ipPAagl2Hsl2gQIvYgQ/exec";
+
+const PRACTICE_JSON = "practice.json";
+const MAIN_JSON = "spellingerror_pretest.json";
+const TARGET_COUNT_EXPECTED = 44;
+const FILLER_COUNT_EXPECTED = 44;
+const LIST_COUNT = 2;
+
+let timeline = [];
+let participant_id = generateParticipantID();
+let participant_list = Math.floor(Math.random() * LIST_COUNT) + 1;
+let experiment_start_time = new Date();
+let experiment_end_time = null;
+let fullscreen_exit_count = 0;
+let fullscreen_enter_count = 0;
+let tab_blur_count = 0;
+let tab_focus_count = 0;
+let visibility_hidden_count = 0;
+let save_attempt_count = 0;
+let consent_given = false;
+let eligibility_ok = false;
+let device_ok = true;
+let allow_beforeunload_warning = true;
+
+const global_metadata = {
+  participant: participant_id,
+  list: participant_list,
+  experiment_version: EXPERIMENT_VERSION,
+  github_commit: GITHUB_COMMIT,
+  experiment_start_time: experiment_start_time.toISOString(),
+  user_agent: navigator.userAgent,
+  language: navigator.language,
+  platform: navigator.platform,
+  screen_width: screen.width,
+  screen_height: screen.height,
+  window_inner_width: window.innerWidth,
+  window_inner_height: window.innerHeight,
+  device_pixel_ratio: window.devicePixelRatio || "",
+  timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || ""
+};
+
+const jsPsych = initJsPsych({
+  on_interaction_data_update: function(data){
+    if(data.event === "fullscreenexit") fullscreen_exit_count++;
+    if(data.event === "fullscreenenter") fullscreen_enter_count++;
+    if(data.event === "blur") tab_blur_count++;
+    if(data.event === "focus") tab_focus_count++;
+  },
+  on_finish: function(){
+    // Data are sent to Google Sheets during the final saving trial.
+  }
+});
+
+jsPsych.data.addProperties(global_metadata);
+
+window.addEventListener("beforeunload", function(e){
+  if(allow_beforeunload_warning){
+    e.preventDefault();
+    e.returnValue = "";
+  }
+});
+
+window.addEventListener("keydown", function(e){
+  if(e.key === "F5" || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "r")){
+    e.preventDefault();
+  }
+});
+
+document.addEventListener("visibilitychange", function(){
+  if(document.hidden){ visibility_hidden_count++; }
+});
+
+function generateParticipantID(){
+  const date = new Date();
+  const y = date.getFullYear().toString().slice(-2);
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  const rand = Math.random().toString(36).substring(2, 8).toUpperCase();
+  return `P${y}${m}${d}_${rand}`;
+}
+
+function escapeHtml(value){
+  if(value === null || value === undefined) return "";
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function isLikelyMobile(){
+  const ua = navigator.userAgent.toLowerCase();
+  return /iphone|ipad|ipod|android|mobile/.test(ua) || window.innerWidth < 800;
+}
+
+function fetchJSON(path){
+  return fetch(`${path}?v=${encodeURIComponent(EXPERIMENT_VERSION)}&t=${Date.now()}`)
+    .then(function(response){
+      if(!response.ok){
+        throw new Error(`${path} を読み込めませんでした。HTTP status: ${response.status}`);
+      }
+      return response.json();
+    });
+}
+
+function normalizeValue(value){
+  if(value === null || value === undefined) return "";
+  return String(value).trim();
+}
+
+function addGlobalProperties(obj){
+  jsPsych.data.addProperties(obj);
+  Object.assign(global_metadata, obj);
+}
+
+function makeEndMessage(message){
+  return {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `<div class="center-page"><h2>${message}</h2><p>このページを閉じてください。</p></div>`,
+    choices: "NO_KEYS"
+  };
+}
+
+function makeSPRTrial(row, options = {}){
+  const phase = options.phase || "main";
+  const sentence_order = options.sentence_order || "";
+  const isPractice = phase === "practice";
+
+  const baseData = {
+    phase: phase,
+    sentence_order: sentence_order,
+    item: normalizeValue(row.item),
+    condition: normalizeValue(row.condition),
+    list_in_stimulus: normalizeValue(row.list),
+    target_filler: normalizeValue(row.target_filler),
+    context_freq: normalizeValue(row.context_freq),
+    error: normalizeValue(row.error),
+    correct_answer: normalizeValue(row.correct_answer),
+    sentence: normalizeValue(row.sentence)
+  };
+
+  timeline.push({
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: '<div class="fixation">+</div>',
+    choices: "NO_KEYS",
+    trial_duration: 1000,
+    data: Object.assign({}, baseData, {
+      task: "fixation"
+    })
+  });
+
+  const words = normalizeValue(row.sentence).split(" ").filter(function(w){ return w.length > 0; });
+
+  words.forEach(function(word, index){
+    timeline.push({
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `<p class="word">${escapeHtml(word)}</p>`,
+      choices: [" "],
+      data: Object.assign({}, baseData, {
+        task: "word",
+        position: index + 1,
+        word: word
+      })
+    });
+  });
+
+  timeline.push({
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+      <div class="center-page">
+        <p>文中に誤りはありましたか？</p>
+        <p><strong>F = はい　　J = いいえ</strong></p>
+      </div>
+    `,
+    choices: ["f", "j"],
+    data: Object.assign({}, baseData, {
+      task: "judgement"
+    }),
+    on_finish: function(data){
+      data.answer = data.response === "f" ? "yes" : "no";
+      data.correct = data.answer === data.correct_answer;
+    }
+  });
+
+  if(isPractice){
+    timeline.push({
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: function(){
+        const last_trial = jsPsych.data.get().last(1).values()[0];
+        return last_trial.correct
+          ? '<p class="feedback-correct">正解です</p>'
+          : '<p class="feedback-incorrect">不正解です</p>';
+      },
+      choices: "NO_KEYS",
+      trial_duration: 1000,
+      data: Object.assign({}, baseData, {
+        task: "feedback"
+      })
+    });
+  }
+}
+
+function validateStimuli(practiceData, mainData){
+  if(!Array.isArray(practiceData) || practiceData.length === 0){
+    throw new Error("practice.json が空、またはJSON配列ではありません。");
+  }
+  if(!Array.isArray(mainData) || mainData.length === 0){
+    throw new Error("spellingerror_pretest.json が空、またはJSON配列ではありません。");
+  }
+}
+
+function makeConsentTrial(){
+  return {
+    type: jsPsychSurveyHtmlForm,
+    html: `
+      <div class="page">
+        <h2>本研究についてのご説明</h2>
+        <h3>１．研究題目</h3>
+        <p>「日本語における綴り誤り検出の神経基盤」</p>
+        <h3>２．本研究の目的・意義</h3>
+        <p>本研究の目的は，ひとがことばを処理する仕組みを明らかにすることです。</p>
+        <h3>３．調査の方法および内容</h3>
+        <p>調査は，オンラインで，参加者個人のデバイスを使用しておこないます。所要時間は全体で15分程度と想定されます。</p>
+        <p>調査は，事前アンケートと，日本語文を一語ずつ読み，文中に誤りがあったかどうかを判断する課題から構成されます。</p>
+        <h3>４．危険性ならびに不利益</h3>
+        <p>調査への参加にともない，参加者に危害や不利益が生じる可能性はありません。</p>
+        <h3>５．調査への参加同意およびその撤回</h3>
+        <p>調査への参加は任意です。調査への参加に一度同意した後であっても，参加者の自由な意思によって，それをいつでも不利益なく，理由の如何にかかわらず撤回することができます。</p>
+        <p>同意を撤回される場合は，その旨を研究実施者にお申し出ください。その場合は，当該参加者のデータをすべて分析対象から除外し，個人が特定されない形で廃棄します。ただし，研究成果の発表後には，データは完全に匿名化されて特定できない状態になるため，個人のデータを廃棄することはできません。</p>
+        <h3>６．謝礼</h3>
+        <p>本調査において，調査参加者への謝礼はございません。あらかじめご了承ください。</p>
+        <h3>７．調査結果の使用及びプライバシーの保護</h3>
+        <p>事前アンケートにて，参加者の生年月日，性別，利き手，言語障害および精神疾患の有無に関する情報を取得します。</p>
+        <p>調査終了後のデータ分析および研究成果の公表において，個人を特定できる情報を利用することはありません。また，取得されたデータは個人が特定されない形で保存・処理されます。</p>
+        <h3>８．研究に関する資料の開示</h3>
+        <p>調査参加者のうち，希望される方には，研究計画についての資料を開示することができます。開示を希望される場合は，その旨を研究実施者にお申し出ください。</p>
+        <h3>９．研究実施者</h3>
+        <p>向井万桜（東京都立大学 人文社会学部 人間社会学科 言語科学教室 3年）<br>Eメールアドレス：mukai-mao@ed.tmu.ac.jp</p>
+        <div class="question-block">
+          <label><input type="radio" name="consent" value="yes" required> 上記の内容に同意して，調査に参加します。</label><br>
+          <label><input type="radio" name="consent" value="no" required> 同意しません。</label>
+        </div>
+      </div>
+    `,
+    button_label: "次へ",
+    data: {task: "consent"},
+    on_finish: function(data){
+      consent_given = data.response.consent === "yes";
+      data.consent = data.response.consent;
+      addGlobalProperties({consent: data.response.consent});
+    }
+  };
+}
+
+function makeEligibilityTrial(){
+  return {
+    type: jsPsychSurveyHtmlForm,
+    html: `
+      <div class="page">
+        <h2>1. あなたについて，伺います。</h2>
+        <p>以下の2点に該当する場合は「はい」を選んでください。</p>
+        <p class="small">※どちらか一方，あるいはどちらにも該当しない場合は「いいえ」を選んでください。</p>
+        <ul>
+          <li>母語は日本語である。</li>
+          <li>言語障害および精神疾患があると医師に診断されたことはない。</li>
+        </ul>
+        <label><input type="radio" name="eligibility" value="yes" required> はい</label>
+        <label style="margin-left:24px;"><input type="radio" name="eligibility" value="no" required> いいえ</label>
+      </div>
+    `,
+    button_label: "次へ",
+    data: {task: "eligibility"},
+    on_finish: function(data){
+      eligibility_ok = data.response.eligibility === "yes";
+      data.eligibility = data.response.eligibility;
+      addGlobalProperties({eligibility: data.response.eligibility});
+    }
+  };
+}
+
+function makeQuestionnaireTrial(){
+  const handednessItems = [
+    ["hand_write", "字を書く"],
+    ["hand_draw", "絵を描く"],
+    ["hand_throw", "ボールを投げる"],
+    ["hand_toothbrush", "歯を磨く"],
+    ["hand_knife", "ナイフを使う"],
+    ["hand_spoon", "スプーンを使う"],
+    ["hand_broom", "ほうきを使うときの上の手"],
+    ["hand_match", "マッチを擦る"],
+    ["hand_box", "箱のふたを開ける"],
+    ["hand_scissors", "ハサミを使う"]
+  ];
+
+  const handednessRows = handednessItems.map(function(item){
+    const name = item[0];
+    const label = item[1];
+    return `
+      <tr>
+        <td>${label}</td>
+        <td><input type="radio" name="${name}" value="left" required></td>
+        <td><input type="radio" name="${name}" value="both" required></td>
+        <td><input type="radio" name="${name}" value="right" required></td>
+      </tr>
+    `;
+  }).join("");
+
+  return {
+    type: jsPsychSurveyHtmlForm,
+    html: `
+      <div class="page">
+        <h2>2. 以下の質問に回答してください。</h2>
+        <div class="question-block">
+          <label>生年月日：
+            <input type="number" name="birth_year" min="1900" max="2100" required> 年
+            <input type="number" name="birth_month" min="1" max="12" required> 月
+            <input type="number" name="birth_day" min="1" max="31" required> 日
+          </label>
+        </div>
+        <div class="question-block">
+          <label>性別：
+            <select name="sex" required>
+              <option value="">選択してください</option>
+              <option value="female">女性</option>
+              <option value="male">男性</option>
+              <option value="other">その他</option>
+              <option value="no_answer">回答しない</option>
+            </select>
+          </label>
+        </div>
+        <div class="question-block">
+          <label>英語以外の言語学習歴：<br>
+            <input type="text" name="other_language_history" style="width:95%;" required value="なし">
+          </label>
+          <p class="small">※ない場合は「なし」と入力してください。</p>
+        </div>
+        <div class="question-block">
+          <h3>3. 利き手調査</h3>
+          <p>以下のそれぞれの動作について、左右どちらの手を優先的に使用するかを選択してください。【全10問】</p>
+          <table class="handedness-table">
+            <tr><th>動作</th><th>左</th><th>どちらでもない</th><th>右</th></tr>
+            ${handednessRows}
+          </table>
+        </div>
+      </div>
+    `,
+    button_label: "次へ",
+    data: {task: "questionnaire"},
+    on_finish: function(data){
+      const r = data.response;
+      data.birth_year = r.birth_year;
+      data.birth_month = r.birth_month;
+      data.birth_day = r.birth_day;
+      data.sex = r.sex;
+      data.other_language_history = r.other_language_history;
+      Object.keys(r).forEach(function(key){ data[key] = r[key]; });
+      addGlobalProperties({
+        birth_year: r.birth_year,
+        birth_month: r.birth_month,
+        birth_day: r.birth_day,
+        sex: r.sex,
+        other_language_history: r.other_language_history,
+        hand_write: r.hand_write,
+        hand_draw: r.hand_draw,
+        hand_throw: r.hand_throw,
+        hand_toothbrush: r.hand_toothbrush,
+        hand_knife: r.hand_knife,
+        hand_spoon: r.hand_spoon,
+        hand_broom: r.hand_broom,
+        hand_match: r.hand_match,
+        hand_box: r.hand_box,
+        hand_scissors: r.hand_scissors
+      });
+    }
+  };
+}
+
+function makeInstructionTrial(){
+  return {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+      <div class="center-page">
+        <h2>課題の説明</h2>
+        <p>この実験では，日本語の文を一語ずつ読んでいただきます。</p>
+        <p>Spaceキーを押すと次の語が表示されます。</p>
+        <p>文を読み終えたら，文中に誤りが含まれていたかどうかを判断してください。</p>
+        <p><strong>誤りがある場合：Fキー</strong></p>
+        <p><strong>誤りがない場合：Jキー</strong></p>
+        <p>まず練習を行ってから本試行に進みます。</p>
+        <p>準備ができたらSpaceキーを押してください。</p>
+      </div>
+    `,
+    choices: [" "],
+    data: {task: "instruction"}
+  };
+}
+
+function makeDeviceWarningTrial(){
+  return {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+      <div class="center-page">
+        <h2>実験を開始できません</h2>
+        <p>この実験はPCでの実施を想定しています。</p>
+        <p>画面幅が小さい，またはスマートフォン・タブレット端末と判定されました。</p>
+        <p>PCでアクセスし直してください。</p>
+      </div>
+    `,
+    choices: "NO_KEYS",
+    data: {task: "device_block"}
+  };
+}
+
+function buildTimeline(practiceData, mainData){
+  validateStimuli(practiceData, mainData);
+
+  device_ok = !isLikelyMobile();
+  addGlobalProperties({device_ok: device_ok});
+
+  timeline.push(makeConsentTrial());
+
+  timeline.push({
+    timeline: [makeEndMessage("研究への参加は行われませんでした。")],
+    conditional_function: function(){ return consent_given === false; }
+  });
+
+  timeline.push({
+    timeline: [makeDeviceWarningTrial()],
+    conditional_function: function(){ return consent_given === true && device_ok === false; }
+  });
+
+  timeline.push({
+    timeline: [makeEligibilityTrial()],
+    conditional_function: function(){ return consent_given === true && device_ok === true; }
+  });
+
+  timeline.push({
+    timeline: [makeEndMessage("参加条件を満たさないため，実験はここで終了します。")],
+    conditional_function: function(){ return consent_given === true && device_ok === true && eligibility_ok === false; }
+  });
+
+  timeline.push({
+    timeline: [
+      makeQuestionnaireTrial(),
+      {
+        type: jsPsychFullscreen,
+        fullscreen_mode: true,
+        message: '<p>実験は全画面モードで行われます。</p><p>下のボタンを押すと全画面表示になります。</p>',
+        button_label: "全画面にする",
+        data: {task: "fullscreen_enter"}
+      },
+      makeInstructionTrial()
+    ],
+    conditional_function: function(){ return consent_given === true && device_ok === true && eligibility_ok === true; }
+  });
+
+  const shuffledPractice = jsPsych.randomization.shuffle(practiceData.filter(function(row){ return !!row.sentence; }));
+  shuffledPractice.forEach(function(row, index){
+    timeline.push({
+      timeline: [],
+      conditional_function: function(){ return consent_given === true && device_ok === true && eligibility_ok === true; }
+    });
+    makeSPRTrial(row, {phase: "practice", sentence_order: index + 1});
+  });
+
+  timeline.push({
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+      <div class="center-page">
+        <p>練習は終了です。</p>
+        <p>本試行を開始します。</p>
+        <p>Spaceキーを押してください。</p>
+      </div>
+    `,
+    choices: [" "],
+    data: {task: "practice_end"}
+  });
+
+  const targets = mainData.filter(function(row){
+    return normalizeValue(row.target_filler) === "target" && Number(row.list) === participant_list;
+  });
+  const fillers = mainData.filter(function(row){
+    return normalizeValue(row.target_filler) === "filler";
+  });
+
+  if(targets.length !== TARGET_COUNT_EXPECTED){
+    throw new Error(`ターゲット刺激数が想定と異なります。expected=${TARGET_COUNT_EXPECTED}, actual=${targets.length}`);
+  }
+  if(fillers.length < FILLER_COUNT_EXPECTED){
+    throw new Error(`フィラー刺激数が不足しています。expected at least=${FILLER_COUNT_EXPECTED}, actual=${fillers.length}`);
+  }
+
+  const sampledFillers = jsPsych.randomization.sampleWithoutReplacement(fillers, FILLER_COUNT_EXPECTED);
+  const mainTrials = jsPsych.randomization.shuffle(targets.concat(sampledFillers));
+
+  addGlobalProperties({
+    main_target_count: targets.length,
+    main_filler_pool_count: fillers.length,
+    main_filler_sampled_count: sampledFillers.length,
+    main_sentence_count: mainTrials.length,
+    randomized_main_order: mainTrials.map(function(row){
+      return `${normalizeValue(row.target_filler)}_${normalizeValue(row.item)}_${normalizeValue(row.condition)}_${normalizeValue(row.context_freq)}_${normalizeValue(row.error)}`;
+    }).join("|")
+  });
+
+  mainTrials.forEach(function(row, index){
+    makeSPRTrial(row, {phase: "main", sentence_order: index + 1});
+  });
+
+  timeline.push({
+    type: jsPsychFullscreen,
+    fullscreen_mode: false,
+    data: {task: "fullscreen_exit"}
+  });
+
+  timeline.push({
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+      <div class="center-page" id="saving-screen">
+        <h2>データを保存しています</h2>
+        <p>このままお待ちください。</p>
+      </div>
+    `,
+    choices: "NO_KEYS",
+    data: {task: "save_data"},
+    on_load: function(){
+      saveDataToGoogleSheets();
+    }
+  });
+}
+
+function summarizeAccuracy(dataRows){
+  const mainJudgements = dataRows.filter(function(row){
+    return row.task === "judgement" && row.phase === "main";
+  });
+  if(mainJudgements.length === 0) return "";
+  const correct = mainJudgements.filter(function(row){ return row.correct === true; }).length;
+  return correct / mainJudgements.length;
+}
+
+function prepareDataForSaving(){
+  experiment_end_time = new Date();
+  const duration_ms = experiment_end_time - experiment_start_time;
+  const rows = jsPsych.data.get().values();
+  const accuracy = summarizeAccuracy(rows);
+
+  const finalMeta = Object.assign({}, global_metadata, {
+    experiment_end_time: experiment_end_time.toISOString(),
+    experiment_duration_ms: duration_ms,
+    fullscreen_exit_count: fullscreen_exit_count,
+    fullscreen_enter_count: fullscreen_enter_count,
+    tab_blur_count: tab_blur_count,
+    tab_focus_count: tab_focus_count,
+    visibility_hidden_count: visibility_hidden_count,
+    main_accuracy: accuracy
+  });
+
+  return rows.map(function(row){
+    return Object.assign({}, finalMeta, row);
+  });
+}
+
+function saveDataToGoogleSheets(){
+  save_attempt_count++;
+  const rows = prepareDataForSaving();
+  const payload = {
+    participant: participant_id,
+    list: participant_list,
+    experiment_version: EXPERIMENT_VERSION,
+    save_attempt_count: save_attempt_count,
+    rows: rows
+  };
+
+  const screen = document.getElementById("saving-screen");
+  if(screen){
+    screen.innerHTML = `
+      <h2>データを保存しています</h2>
+      <p>保存が完了するまでブラウザを閉じないでください。</p>
+      <p class="small">参加者ID: ${escapeHtml(participant_id)}</p>
+    `;
+  }
+
+  fetch(GAS_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {"Content-Type": "text/plain;charset=utf-8"},
+    body: JSON.stringify(payload)
+  })
+  .then(function(){
+    allow_beforeunload_warning = false;
+    if(screen){
+      screen.innerHTML = `
+        <h2>実験終了です</h2>
+        <p>ご協力ありがとうございました。</p>
+        <p>データ送信リクエストを実行しました。</p>
+        <p class="small">参加者ID: ${escapeHtml(participant_id)}</p>
+        <p class="small">このページを閉じてください。</p>
+      `;
+    }
+  })
+  .catch(function(error){
+    if(screen){
+      screen.innerHTML = `
+        <h2>通信エラーが発生しました</h2>
+        <p>データ送信に失敗しました。</p>
+        <p class="warning">ブラウザを閉じずに，「再送する」を押してください。</p>
+        <p class="small">${escapeHtml(error.message)}</p>
+        <button id="retry-save">再送する</button>
+      `;
+      document.getElementById("retry-save").addEventListener("click", saveDataToGoogleSheets);
+    }
+  });
+}
+
+function showLoadError(error){
+  document.body.innerHTML = `
+    <div class="center-page">
+      <h2>読み込みエラー</h2>
+      <p>実験ファイルの読み込みに失敗しました。</p>
+      <p class="warning">${escapeHtml(error.message)}</p>
+      <p>practice.json と spellingerror_pretest.json がHTMLと同じフォルダにあるか確認してください。</p>
+    </div>
+  `;
+}
+
+Promise.all([fetchJSON(PRACTICE_JSON), fetchJSON(MAIN_JSON)])
+  .then(function(values){
+    const practiceData = values[0];
+    const mainData = values[1];
+    buildTimeline(practiceData, mainData);
+    jsPsych.run(timeline);
+  })
+  .catch(function(error){
+    showLoadError(error);
+  });
+
+</script>
+</html>
